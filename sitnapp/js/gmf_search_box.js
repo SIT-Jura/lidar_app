@@ -13,7 +13,7 @@
         },
         source: function( request, response ) {
             $.ajax( {
-                url: "https://sitn.ne.ch/search?",
+                url: "https://geo.jura.ch/search?",
                 data: {
                     query: request.term,
                     limit: 20,
@@ -57,7 +57,7 @@
             }
 
             $.ajax({
-                url: "https://sitn.ne.ch/raster?",
+                url: "https://geo.jura.ch/raster?",
                 data: {
                     lon: coord[0],
                     lat: coord[1],
@@ -69,7 +69,7 @@
                     let z = alti + zoom_out;                    
                     let annotationsA = viewer.scene.getAnnotations();
                     for (let index in annotationsA.children) {
-                        if (annotationsA.children[index].description == "Adresse SITN") {
+                        if (annotationsA.children[index].description == "Adresse SIT-Jura") {
                             annotationsA.children[index].visible = false;
                         }
                     }
@@ -82,7 +82,7 @@
                     });
                     let annotationsB = viewer.scene.getAnnotations();
                     for (let index in annotationsB.children) {
-                        if (annotationsB.children[index].description == "Adresse SITN") {
+                        if (annotationsB.children[index].description == "Adresse SIT-Jura") {
                             annotationsB.children[index].elDescription.css('opacity', 0); // hugly hack
                             annotationsB.children[index].moveHere(viewer.scene.camera);
                         }
