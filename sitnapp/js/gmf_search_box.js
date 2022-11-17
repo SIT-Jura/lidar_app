@@ -61,7 +61,7 @@
                     'layers': 'mns'
                 },
                 success: function(data) {
-                    let zoom_out = 200;
+                    let zoom_out = 2000;
                     let alti = parseInt(data.mns);
                     let z = alti + zoom_out;
                     let annotationsA = viewer.scene.getAnnotations();
