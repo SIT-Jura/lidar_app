@@ -32,15 +32,12 @@
                         }
                         jquiFeatures.push(jquiF);
                     }
-
                     response( jquiFeatures );
-
                 }
             });
         },
 
         select: function(event, ui) {
-
             if (ui.item.geom.type ==='Point') {
                 coord = ui.item.geom.coordinates;
             } else {
@@ -66,17 +63,16 @@
                 success: function(data) {
                     let zoom_out = 200;
                     let alti = parseInt(data.mns);
-                    let z = alti + zoom_out;                    
+                    let z = alti + zoom_out;
                     let annotationsA = viewer.scene.getAnnotations();
                     for (let index in annotationsA.children) {
                         if (annotationsA.children[index].description == "Adresse SIT-Jura") {
                             annotationsA.children[index].visible = false;
                         }
                     }
-
                     viewer.scene.addAnnotation([coord[0], coord[1], z - zoom_out], {
                         "title": ui.item.label,
-                        "description": 'Adresse SITN',
+                        "description": 'Adresse SIT-Jura',
                         "cameraPosition": [coord[0], coord[1], alti + zoom_out],
                         "cameraTarget": [coord[0], coord[1], alti]
                     });
@@ -87,7 +83,6 @@
                             annotationsB.children[index].moveHere(viewer.scene.camera);
                         }
                     }
-
                 }
             })
         }
