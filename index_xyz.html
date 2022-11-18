@@ -6,7 +6,7 @@
   <meta name="author" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <link rel="icon" href="./lidar_app/favicon.ico" />
-  <title>Géoportail 3D du SIT-Jura</title>
+  <title>Géoportail LiDAR du SIT-Jura</title>
   <link rel="stylesheet" type="text/css" href="./potree/build/potree/potree.css">
   <link rel="stylesheet" type="text/css" href="./potree/libs/jquery-ui/jquery-ui.min.css">
   <link rel="stylesheet" type="text/css" href="./potree/libs/openlayers3/ol.css">
@@ -66,13 +66,13 @@
     viewer.setFOV(60);
     viewer.setPointBudget(4*1000*1000);
     viewer.loadSettingsFromURL();
-    viewer.setDescription('Géoportail 3D du<a target=_blank href="https://geo.jura.ch/"> SIT-Jura</a>');
+    viewer.setDescription('Géoportail LiDAR du<a target=_blank href="https://geo.jura.ch/"> SIT-Jura</a>');
     viewer.loadGUI(() => {
       viewer.setLanguage('fr');
       $("#menu_scene").next().show();
       viewer.toggleSidebar();
     
-      let section = $(`
+    let section = $(`
         <h3 id="menu_meta" class="accordion-header ui-widget"><span>Aide navigation</span></h3>
         <div class="accordion-content ui-widget"></div>
       `);

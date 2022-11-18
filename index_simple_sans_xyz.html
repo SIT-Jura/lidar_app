@@ -6,7 +6,7 @@
   <meta name="author" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <link rel="icon" href="./lidar_app/favicon.ico" />
-  <title>Géoportail 3D du SIT-Jura</title>
+  <title>Géoportail LiDAR du SIT-Jura</title>
   <link rel="stylesheet" type="text/css" href="./potree/build/potree/potree.css">
   <link rel="stylesheet" type="text/css" href="./potree/libs/jquery-ui/jquery-ui.min.css">
   <link rel="stylesheet" type="text/css" href="./potree/libs/openlayers3/ol.css">
@@ -54,19 +54,13 @@
   
   <script>
 
-  var queryString = window.location.search;
-  var urlParams = new URLSearchParams(queryString);
-  var x = parseInt(urlParams.get('x'));
-  var y = parseInt(urlParams.get('y'));
-  var z = parseInt(urlParams.get('z'));
-
   window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
     
     viewer.setEDLEnabled(true);
     viewer.setFOV(60);
     viewer.setPointBudget(4*1000*1000);
     viewer.loadSettingsFromURL();
-    viewer.setDescription('Géoportail 3D du<a target=_blank href="https://geo.jura.ch/"> SIT-Jura</a>');
+    viewer.setDescription('Géoportail LiDAR du<a target=_blank href="https://geo.jura.ch/"> SIT-Jura</a>');
     viewer.loadGUI(() => {
       viewer.setLanguage('fr');
       $("#menu_scene").next().show();
@@ -120,19 +114,12 @@
 
         pointcloud.name = "Lidar 2022 (NE) - Swisssurface 3D";
         material.size = 1.5;
-        material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+        material.pointSizeType = Potree.PointSizeType.FIXED;
         material.activeAttributeName = "rgba";
         material.shape = Potree.PointShape.CIRCLE;
         scene.addPointCloud(pointcloud);
-        
-        if (x>2000000 && y>1000000 && z>200) {
-          scene.view.position.set(x, y-750, z+200);
-          scene.view.lookAt(new THREE.Vector3(x+0, y+20, z));
-          material.size = 0.5;
-        }else{
-          viewer.fitToScreen();
-          material.size = 1.5;
-        }
+        viewer.fitToScreen();
+        pointcloud.visible = true;
       }
 
     };
