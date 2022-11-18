@@ -34,4 +34,4 @@ En cas de mise à jour du fichier index.html, le copier dans lidar_app avant de 
 
 url `index.html?x=2590502.0&y=1245573.0&z=446`
 
-Exemple : https://geo-test.jura.ch/potree/index.html?x=2590502.0&y=1245573.0&z=446
+Exemple : https://geo-test.jura.ch/lidar/index.html?x=2590502.0&y=1245573.0&z=446
