@@ -13,7 +13,7 @@ Potree LiDAR viewer customization and extension
 2.	Download last release: https://github.com/potree/potree/releases/tag/1.8
 3.	`mkdir potree`
 4.	copy-paste `libs` and `build` from the downloaded zip to the `/potree` folder
-5.  copy-paste `lidar_app\index.html` to `/var/www/vhosts/sitj/htdocs/lidar`
+5.  copy-paste `lidar_app\index.html` to `/var/www/vhosts/sitj/htdocs/geo3d`
 6.  Add in `/var/www/vhosts/sitj/conf/proxies.conf`
     
     `ProxyPass "/geo3d" !`
