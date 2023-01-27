@@ -6,7 +6,7 @@ Potree LiDAR viewer customization and extension
 
 1.	Clone this
 
-    `cd /var/www/vhosts/sitj/htdocs/lidar`
+    `cd /var/www/vhosts/sitj/htdocs/geo3d`
     
     `git clone git@github.com:SIT-Jura/lidar_app.git`
     
@@ -16,7 +16,7 @@ Potree LiDAR viewer customization and extension
 5.  copy-paste `lidar_app\index.html` to `/var/www/vhosts/sitj/htdocs/lidar`
 6.  Add in `/var/www/vhosts/sitj/conf/proxies.conf`
     
-    `ProxyPass "/lidar" !`
+    `ProxyPass "/geo3d" !`
     
 En cas de mise à jour du fichier index.html, le copier dans lidar_app avant de faire un git push
 
