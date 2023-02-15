@@ -87,13 +87,13 @@
     async function loadDatasets(){
       let scene = viewer.scene;
       {
-        let result = await Potree.loadPointCloud("https://geo-test.jura.ch/geo3d/pointclouds/sdtl/2022/hetre_ajoie/metadata.json"); 
+        let result = await Potree.loadPointCloud("https://geo.jura.ch/geo3d/pointclouds/sdtl/2022/hetre_ajoie/metadata.json"); 
         let pointcloud = result.pointcloud;
         let material = pointcloud.material;
 
         pointcloud.name = "ENV Lidar 2022";
-        material.size = 1.5;
-        material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+        material.size = 0.35;
+        material.pointSizeType = Potree.PointSizeType.FIXE;
         material.activeAttributeName = "rgba";
         material.shape = Potree.PointShape.CIRCLE;
         scene.addPointCloud(pointcloud);
@@ -102,12 +102,26 @@
       }
 
       {
-        let result = await Potree.loadPointCloud("https://sitn.ne.ch/lidar/pointclouds/aerial/2022/jura/metadata.json"); 
+        let result = await Potree.loadPointCloud("https://geo.jura.ch/geo3d/pointclouds/aerial/2007/jura_couleur_2007/metadata.json"); 
         let pointcloud = result.pointcloud;
         let material = pointcloud.material;
 
-        pointcloud.name = "swissSURFACE3D 2022 (NE)";
-        material.size = 1.5;
+        pointcloud.name = "swissSURFACE3D 2007";
+        material.size = 0.35;
+        material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+        material.activeAttributeName = "rgba";
+        material.shape = Potree.PointShape.CIRCLE;
+        scene.addPointCloud(pointcloud);
+        viewer.fitToScreen();
+        pointcloud.visible = false;
+      }
+      {
+        let result = await Potree.loadPointCloud("https://geo.jura.ch/geo3d/pointclouds/aerial/2020/jura_couleur_2020/metadata.json"); 
+        let pointcloud = result.pointcloud;
+        let material = pointcloud.material;
+
+        pointcloud.name = "swissSURFACE3D 2020";
+        material.size = 0.35;
         material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
         material.activeAttributeName = "rgba";
         material.shape = Potree.PointShape.CIRCLE;
@@ -118,12 +132,12 @@
 
 
       {
-        let result = await Potree.loadPointCloud("https://geo-test.jura.ch/geo3d/pointclouds/aerial/2022/jura_couleur_2022/metadata.json"); 
+        let result = await Potree.loadPointCloud("https://geo.jura.ch/geo3d/pointclouds/aerial/2022/jura_couleur_2020_2022/metadata.json"); 
         let pointcloud = result.pointcloud;
         let material = pointcloud.material;
 
         pointcloud.name = "swissSURFACE3D 2022";
-        material.size = 1.5;
+        material.size = 0.35;
         material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
         material.activeAttributeName = "rgba";
         material.shape = Potree.PointShape.CIRCLE;
@@ -135,7 +149,7 @@
           material.size = 0.5;
         }else{
           viewer.fitToScreen();
-          material.size = 1.5;
+          material.size = 0.35;
         }
       }
 
