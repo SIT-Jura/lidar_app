@@ -87,11 +87,41 @@
     async function loadDatasets(){
       let scene = viewer.scene;
       {
+        let result = await Potree.loadPointCloud("https://geo.jura.ch/geo3d/pointclouds/aerial/2007/jura_couleur_2007/metadata.json"); 
+        let pointcloud = result.pointcloud;
+        let material = pointcloud.material;
+
+        pointcloud.name = "Altimétrie JU 2007 LIDAR";
+        material.size = 0.35;
+        material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+        material.activeAttributeName = "rgba";
+        material.shape = Potree.PointShape.CIRCLE;
+        scene.addPointCloud(pointcloud);
+        viewer.fitToScreen();
+        pointcloud.visible = false;
+      }
+      
+      {
+        let result = await Potree.loadPointCloud("https://geo.jura.ch/geo3d/pointclouds/aerial/2020/jura_couleur_2020/metadata.json"); 
+        let pointcloud = result.pointcloud;
+        let material = pointcloud.material;
+
+        pointcloud.name = "Altimétrie JU 2020 LIDAR";
+        material.size = 0.35;
+        material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+        material.activeAttributeName = "rgba";
+        material.shape = Potree.PointShape.CIRCLE;
+        scene.addPointCloud(pointcloud);
+        viewer.fitToScreen();
+        pointcloud.visible = false;
+      }
+
+      {
         let result = await Potree.loadPointCloud("https://geo.jura.ch/geo3d/pointclouds/sdtl/2022/hetre_ajoie/metadata.json"); 
         let pointcloud = result.pointcloud;
         let material = pointcloud.material;
 
-        pointcloud.name = "ENV Lidar 2022";
+        pointcloud.name = "Altimétrie ENV 2022 Photogr.";
         material.size = 0.35;
         material.pointSizeType = Potree.PointSizeType.FIXE;
         material.activeAttributeName = "rgba";
@@ -102,41 +132,11 @@
       }
 
       {
-        let result = await Potree.loadPointCloud("https://geo.jura.ch/geo3d/pointclouds/aerial/2007/jura_couleur_2007/metadata.json"); 
-        let pointcloud = result.pointcloud;
-        let material = pointcloud.material;
-
-        pointcloud.name = "swissSURFACE3D 2007";
-        material.size = 0.35;
-        material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
-        material.activeAttributeName = "rgba";
-        material.shape = Potree.PointShape.CIRCLE;
-        scene.addPointCloud(pointcloud);
-        viewer.fitToScreen();
-        pointcloud.visible = false;
-      }
-      {
-        let result = await Potree.loadPointCloud("https://geo.jura.ch/geo3d/pointclouds/aerial/2020/jura_couleur_2020/metadata.json"); 
-        let pointcloud = result.pointcloud;
-        let material = pointcloud.material;
-
-        pointcloud.name = "swissSURFACE3D 2020";
-        material.size = 0.35;
-        material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
-        material.activeAttributeName = "rgba";
-        material.shape = Potree.PointShape.CIRCLE;
-        scene.addPointCloud(pointcloud);
-        viewer.fitToScreen();
-        pointcloud.visible = false;
-      }
-
-
-      {
         let result = await Potree.loadPointCloud("https://geo.jura.ch/geo3d/pointclouds/aerial/2022/jura_couleur_2020_2022/metadata.json"); 
         let pointcloud = result.pointcloud;
         let material = pointcloud.material;
 
-        pointcloud.name = "swissSURFACE3D 2022";
+        pointcloud.name = "Altimétrie JU 2022 LIDAR";
         material.size = 0.35;
         material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
         material.activeAttributeName = "rgba";
