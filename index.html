@@ -23,6 +23,16 @@
   <meta property="og:url" content="https://geo.jura.ch/geo3d/"/>
   <meta property="og:image" content="https://geo.jura.ch/geo3d/lidar_app/images/VignetteGeo3D.png"/>
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXJ4GXK0QW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-JXJ4GXK0QW');
+  </script>
+
 </head>
 
 <body>
@@ -146,7 +156,7 @@
         let pointcloud = result.pointcloud;
         let material = pointcloud.material;
 
-        pointcloud.name = "Altimétrie JU 2022 LIDAR";
+        pointcloud.name = "Altimétrie JU 2022-23 LIDAR";
         material.size = 0.35;
         material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
         material.activeAttributeName = "rgba";
@@ -163,6 +173,20 @@
         }
       }
 
+      {
+        let result = await Potree.loadPointCloud("https://geo.jura.ch/geo3d/pointclouds/aerial/2025/Haute-Sorne_2025/metadata.json"); 
+        let pointcloud = result.pointcloud;
+        let material = pointcloud.material;
+
+        pointcloud.name = "Altimétrie Haute-Sorne 2025 LIDAR";
+        material.size = 0.35;
+        material.pointSizeType = Potree.PointSizeType.FIXE;
+        material.activeAttributeName = "rgba";
+        material.shape = Potree.PointShape.CIRCLE;
+        scene.addPointCloud(pointcloud);
+        viewer.fitToScreen();
+        pointcloud.visible = false;
+      }
 
     };
 
