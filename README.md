@@ -24,6 +24,8 @@ En cas de mise à jour du fichier index.html, le copier dans lidar_app avant de 
 
 - `index.html` : potree + coordonnées xyz
 
+- `index_geo-t.html` : potree + coordonnées xyz pour serveur de test
+
 - `index_simple_sans_xyz.html` : potree uniquement
 
 - `index_xyz.html` : potree + coordonnées xyz, adapation de `index_simple_sans_xyz.html` et de `index_xyz_ne.html`
@@ -34,4 +36,6 @@ En cas de mise à jour du fichier index.html, le copier dans lidar_app avant de 
 
 url `index.html?x=2590502.0&y=1245573.0&z=446`
 
-Exemple : https://geo-test.jura.ch/geo3d/index.html?x=2590502.0&y=1245573.0&z=446
+Exemples : 
+ - https://geo-t.jura.ch/geo3d/index_geo-t.html?x=2590502.0&y=1245573.0&z=446
+ - https://geo.jura.ch/geo3d/?x=2590502.0&y=1245573.0&z=446
